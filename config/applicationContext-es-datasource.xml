@@ -8,8 +8,7 @@
         class="com.jaspersoft.jasperserver.api.engine.jasperreports.util.CustomDataSourceDefinition">
         <property name="factory" ref="customDataSourceServiceFactory" />
         <property name="name" value="ESDataSource" />
-        <property name="serviceClassName"
-            value="net.wedjaa.jasper.elasticsearch.server.ESDataSourceService" />
+        <property name="serviceClassName" value="net.wedjaa.jasper.elasticsearch.server.ESDataSourceService" />
         <property name="propertyDefinitions">
             <list>
                 <map>

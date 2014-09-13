@@ -66,13 +66,13 @@ it's not a coincidence, are the same ones you have bundled in the
  - lucene-suggest-4.7.2.jar
  - spatial4j-0.4.1.jar
  
- Copy the application configuration - *applicationContext-es-datasource.xml* - in
- *JS_HOME/WEB-INF* and *es_datasource.properties* in  *JS_HOME/WEB-INF/bundles*
+Copy the application configuration - *applicationContext-es-datasource.xml* - in
+*JS_HOME/WEB-INF* and *es_datasource.properties* in  *JS_HOME/WEB-INF/bundles*
  
- It's not time to do some editing.
+It's not time to do some editing.
  
- Register the query language in the REST points configuration. 
- Open *JS_HOME/WEB-INF/applicationContext-rest-services.xml* and find this bit:
+Register the query language in the REST points configuration. 
+Open *JS_HOME/WEB-INF/applicationContext-rest-services.xml* and find this bit:
  
     <util:list id="queryLanguagesCe">
         <value>sql</value>
@@ -95,21 +95,21 @@ and change it to:
         <value>cql</value>
     </util:list>
 
-  Then it's time to edit *JS_HOME/WEB-INF/classes/jasperreports.properties* - add, at the
-  very top of the file:
+Then it's time to edit *JS_HOME/WEB-INF/classes/jasperreports.properties* - add, at the
+very top of the file:
   
     net.sf.jasperreports.query.executer.factory.elasticsearch=net.wedjaa.jasper.elasticsearch.query.ESQueryExecuterFactory
     
- Now you can restart the server and test some ElasticSearch based reports.
+Now you can restart the server and test some ElasticSearch based reports.
  
- Support
- -------
+Support
+-------
  
- This software is released as is. We make no claim that it will do anything useful and 
- it may potentially do harm to your self confidence. We will however keep an eye on the 
- issues you open on GitHub and try an fix whatever it's broken.
+This software is released as is. We make no claim that it will do anything useful and 
+it may potentially do harm to your self confidence. We will however keep an eye on the 
+issues you open on GitHub and try an fix whatever it's broken.
 
- We do offer professional services and support in case you need.
+We do offer professional services and support in case you need.
 
   
   
