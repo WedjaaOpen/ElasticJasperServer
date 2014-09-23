@@ -3,7 +3,7 @@ package net.wedjaa.jasper.elasticsearch.server;
 import java.util.Map;
 
 import net.sf.jasperreports.engine.JRParameter;
-import net.wedjaa.jasper.elasticsearch.ESSearch;
+import net.wedjaa.elasticparser.ESSearch;
 
 import com.jaspersoft.jasperserver.api.metadata.jasperreports.service.ReportDataSourceService;
 
