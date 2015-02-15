@@ -19,8 +19,8 @@ You can get the first two JARs from the Jaspersoft Server deployment and clone a
 by following the instructions there.
 
 If you are lazy or Eclipse impaired you can use the pre-compiled libraries - 
-*es-adapter.jar* and *es-server-ds.jar* - that you will find in this repository. Be aware
-that these binaries may not always be up to date.
+*es-adapter.jar*, *elasticparser-0.5.1-SNAPSHOT.jar* and *es-server-ds.jar* - that you will find in this repository. 
+Be aware that these binaries may not always be up to date.
 
 Installation
 ------------
@@ -40,8 +40,8 @@ example: if you deployed the server in a Tomcat application server that is insta
 **/opt/tomcat** your *JS_HOME* is most probably going to be
 **/opt/tomcat/webapps/jasperserver**.
 
-First of all stop the server. Then copy the adapter libraries - *es-adapter.jar* and 
-*es-server-ds.jar* - under *JS_HOME/WEB-INF/lib*
+First of all stop the server. Then copy the adapter libraries - *es-adapter.jar*, *elasticparser-0.5.1-SNAPSHOT.jar*,
+ and *es-server-ds.jar* - under *JS_HOME/WEB-INF/lib*
 
 Then you need to remove the *lucene* libraries installed with Jaspersoft Server. This is
 because they are an old version and we need a newer one.
