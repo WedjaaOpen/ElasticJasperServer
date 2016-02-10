@@ -103,8 +103,8 @@
                 <fileset>
                   <directory>${project.build.directory}</directory>
                   <includes>
-                    <include>libs/**/*</include>
-                    <include>config/**/*</include>
+                    <include>libs/*</include>
+                    <include>config/*</include>
                     <include>${project.build.finalName}.${project.packaging}</include>
                   </includes>
                   <outputDirectory>${project.basedir}/${project.build.finalName}.zip/${project.build.finalName}</outputDirectory>
