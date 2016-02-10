@@ -45,7 +45,7 @@
     <dependency>
       <groupId>jasperreports</groupId>
       <artifactId>metadata-api</artifactId>
-      <version>${js.api}</version>
+      <version>${js.version}</version>
       <scope>system</scope>
       <systemPath>${project.basedir}/libs/${js.api}</systemPath>
     </dependency>
@@ -86,7 +86,8 @@
               <files>
                 <file>
                   <source>${project.build.directory}/${js.zip}/${js.base}/${js.libs}/${js.api}</source>
-                  <outputDirectory>${project.basedir}/libs/${js.api}</outputDirectory>
+                  <outputDirectory>${project.basedir}/libs</outputDirectory>
+                  <destName>${js.api}</destName>
                 </file>
               </files>
             </configuration>
@@ -125,13 +126,13 @@
             </goals>
             <configuration>
               <outputDirectory>${project.basedir}/target/config</outputDirectory>
-              <resources>          
+              <resources>
                 <resource>
                   <directory>config</directory>
                   <filtering>false</filtering>
                 </resource>
-              </resources>              
-            </configuration>            
+              </resources>
+            </configuration>
           </execution>
         </executions>
       </plugin>
@@ -168,7 +169,7 @@
               <goal>copy-dependencies</goal>
             </goals>
             <configuration>
-	      <includeGroupIds>org.elasticsearch,org.apache.lucene,com.spatial4j</includeGroupIds>
+              <includeGroupIds>org.elasticsearch,org.apache.lucene,com.spatial4j</includeGroupIds>
               <outputDirectory>${project.build.directory}/libs</outputDirectory>
               <overWriteReleases>false</overWriteReleases>
               <overWriteSnapshots>false</overWriteSnapshots>
