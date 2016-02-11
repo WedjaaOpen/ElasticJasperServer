@@ -58,3 +58,4 @@
     <property name="valueType" value="stringList"/>
   </bean>
 </beans>
+
