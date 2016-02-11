@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+  <bean id="ESDataSourceBean" class="com.jaspersoft.jasperserver.api.engine.jasperreports.util.CustomDataSourceDefinition">
+    <property name="factory" ref="customDataSourceServiceFactory"/>
+    <property name="name" value="ESDataSource"/>
+    <property name="serviceClassName" value="net.wedjaa.jasper.elasticsearch.server.ESDataSourceService"/>
+    <property name="propertyDefinitions">
+      <list>
+        <map>
+          <entry key="name" value="elasticSearchIndexes"/>
+          <entry key="default" value=""/>
+        </map>
+        <map>
+          <entry key="name" value="elasticSearchTypes"/>
+          <entry key="default" value=""/>
+        </map>
+        <map>
+          <entry key="name" value="elasticSearchHost"/>
+          <entry key="default" value="localhost"/>
+        </map>
+        <map>
+          <entry key="name" value="elasticSearchPort"/>
+          <entry key="default" value="9300"/>
+        </map>
+        <map>
+          <entry key="name" value="elasticSearchCluster"/>
+          <entry key="default" value="elasticsearch"/>
+        </map>
+        <map>
+          <entry key="name" value="elasticSearchUsername"/>
+          <entry key="default" value=""/>
+        </map>
+        <map>
+          <entry key="name" value="elasticSearchPassword"/>
+          <entry key="default" value=""/>
+        </map>
+        <map>
+          <entry key="name" value="elasticSearchMode"/>
+          <entry key="default" value="0"/>
+        </map>
+      </list>
+    </property>
+    <property name="queryExecuterMap">
+      <map>
+        <entry key="elasticsearch" value="net.wedjaa.jasper.elasticsearch.query.ESQueryExecuterFactory"/>
+      </map>
+    </property>
+  </bean>
+  <bean class="com.jaspersoft.jasperserver.api.common.util.spring.GenericBeanUpdater">
+    <property name="definition" ref="addMessageCatalog"/>
+    <property name="value">
+      <list>
+        <value>WEB-INF/bundles/es_datasource</value>
+      </list>
+    </property>
+    <property name="valueType" value="stringList"/>
+  </bean>
+</beans>
+

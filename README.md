@@ -27,6 +27,10 @@ needed for compilation:
 mvn validate
 ```
 
+If you have already the proper version of the Jasper Server zip file you may 
+drop it in the `downloads` directory of the project - you may need to create it. 
+If the zip file is already there we won't download it from sourceforge.
+
 You can now create the package you will need to configure the Jaspersoft Server:
 
 ```
@@ -46,10 +50,33 @@ that the validate phase failed to download the Jasper Server package.
 Installation
 ------------
 
-The installation of the server component is not as straight forward as installing the
-plugin in the Jaspersoft Studio and requires a bit of care since you may break your
-working installation of Jaspersoft Server. This may not be a problem if you're setting
-one up just for this.
+The easy installation - that works if your Jasper server has no major customizations -
+is to get the zip file created by the `mvn package` command - `es-server-ds-2.2.0.zip`
+for example - and take it to the Jasper Server machine. Once on the machine unzip the
+file:
+
+```
+unzip es-server-ds-2.2.0.zip
+```
+
+Enter the directory where the file was unzipped and run the installer:
+
+```
+cd es-server-ds-2.2.0
+java -jar libs/es-server-ds-2.2.0.jar */path/to/jserver/installation*
+```
+Where */path/to/jserver/installation* is the path to the Jasper Server installation
+in the application server; something like `/usr/local/tomcat/webapps/jasperserver`.
+
+This will take care of configuring the server with the adapter, update the lucene
+libraries and register the query language.
+
+Once this is done you can restart the Jasper Server and test the new ES Adapter.
+
+Manual Installation
+-------------------
+
+You can install the adapter by hand by following these steps
 
 **Before proceeding with the installation, make sure that you have a working installation
 of Jaspersoft Server: set it up, run it, try to run a couple of reports - check that it
@@ -61,33 +88,11 @@ example: if you deployed the server in a Tomcat application server that is insta
 **/opt/tomcat** your *JS_HOME* is most probably going to be
 **/opt/tomcat/webapps/jasperserver**.
 
-First of all stop the server. Then copy the adapter library you extracted from the
-zip file - *es-server-ds.jar* - under *JS_HOME/WEB-INF/lib*
+First of all stop the server. Then copy the adapter libraries you extracted from the
+zip file - in the *libs/* path- under *JS_HOME/WEB-INF/lib*. Make sure you remove older
+versions of existing libraries - like the lucene ones.
 
-Then you need to remove the *lucene* libraries installed with Jaspersoft Server. This is
-because they are an old version and we need a newer one.
-
-Copy the libraries needed by *elasticsearch* in *JS_HOME/WEB-INF/lib*. These libraries,
-it's not a coincidence, are the same ones you have bundled in the
-[ElasticSearchOSGI](https://github.com/WedjaaOpen/ElasticSearchOSGI "ES OSGI Bundle"):
-
- - elasticsearch-1.1.2.jar
- - lucene-analyzers-common-4.7.2.jar
- - lucene-codecs-4.7.2.jar
- - lucene-core-4.7.2.jar
- - lucene-grouping-4.7.2.jar
- - lucene-highlighter-4.7.2.jar
- - lucene-join-4.7.2.jar
- - lucene-memory-4.7.2.jar
- - lucene-misc-4.7.2.jar
- - lucene-queries-4.7.2.jar
- - lucene-queryparser-4.7.2.jar
- - lucene-sandbox-4.7.2.jar
- - lucene-spatial-4.7.2.jar
- - lucene-suggest-4.7.2.jar
- - spatial4j-0.4.1.jar
-
-Copy the application configuration - *applicationContext-es-datasource.xml* - in
+Copy the application configuration: *applicationContext-es-datasource.xml* - in
 *JS_HOME/WEB-INF* and *es_datasource.properties* in  *JS_HOME/WEB-INF/bundles*
 
 It's not time to do some editing.
