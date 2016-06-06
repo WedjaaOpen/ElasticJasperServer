@@ -4,13 +4,13 @@
 	<groupId>net.wedjaa.elasticsearch</groupId>
 	<artifactId>es-server-ds</artifactId>
 	<packaging>jar</packaging>
-	<version>2.2.0</version>
+	<version>2.2.1</version>
 	<name>es-server-ds</name>
 	<url>https://github.com/WedjaaOpen/ElasticJasperServer</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<parser.es.version>2.2.0</parser.es.version>
-		<js.version>6.2.0</js.version>
+		<parser.es.version>2.2.1</parser.es.version>
+		<js.version>6.2.1</js.version>
 		<wagon.skip>true</wagon.skip>
 		<maven.resources.overwrite>true</maven.resources.overwrite>
 		<js.url>http://sourceforge.net</js.url>
@@ -42,7 +42,7 @@
 		<dependency>
 			<groupId>net.wedjaa.jasper</groupId>
 			<artifactId>jr-es-adapter</artifactId>
-			<version>2.2.0</version>
+			<version>${parser.es.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>jasperreports</groupId>
